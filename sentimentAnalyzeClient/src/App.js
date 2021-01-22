@@ -46,7 +46,8 @@ class App extends React.Component {
     ret = axios.get(url);
     ret.then((response)=>{
 
-      let output = response.document.sentiment.document.label;
+      this.setState({sentimentOutput:response.data});
+      let output = response.data;
       
       if(response.data === "positive") {
         output = <div style={{color:"green",fontSize:20}}>{response.data}</div>

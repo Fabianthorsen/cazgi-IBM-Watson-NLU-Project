@@ -3,11 +3,6 @@ import './bootstrap.min.css';
 
 class EmotionTable extends React.Component {
     render() {
-        const emotions = this.props.emotions.result.emotion.document.emotion;
-        const resKeys = Object.keys(
-            this.props.emotions.result.emotion.document.emotion,
-        )
-
         return (  
             <div>
             {/*You can remove this line and the line below. */}
@@ -15,11 +10,11 @@ class EmotionTable extends React.Component {
             <table className="table table-bordered">
                 <tbody>
                 {
-                    resKeys.keys.map((key, idx) => {
+                    Object.entries(this.props.emotions).map(item => {
                         return (
-                            <tr key={idx}>
-                                <td>{key}</td>
-                                <td>{emotions[key]}</td>
+                            <tr>
+                                <td>{item[0]}</td>
+                                <td>{item[1]}</td>
                             </tr>
                         )
                     })
